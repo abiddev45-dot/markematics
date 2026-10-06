@@ -1,13 +1,30 @@
-
 import "./globals.css";
+import { Archivo, DM_Sans, JetBrains_Mono } from "next/font/google";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-
 import { Header, Nav } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { Loader } from "@/components/site/loader";
 import { LoadingProvider } from "@/components/site/loading-context";
 import { SmoothScroll } from "@/components/site/smooth-scroll";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Markematics - Market Research & Consulting, Karachi",
@@ -56,7 +73,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`h-full antialiased ${archivo.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="min-h-full">
         <TooltipProvider>
           <LoadingProvider>
